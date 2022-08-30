@@ -4,18 +4,9 @@ bool Q(bool player, int xo, int yo, int x, int y)
 {
 	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
 	{
-		if (xo - yo == x - y)
+		if (abs(x - xo) == abs(y - yo))
 		{
-			if (CheckDiagonalMove(0, xo, yo, y))
-			{
-				Game[y][x] = Game[yo][xo];
-				Game[yo][xo] = 254;
-				return 1;
-			}
-		}
-		else if (xo + yo == x + y)
-		{
-			if (CheckDiagonalMove(1, xo, yo, y))
+			if (CheckDiagonalMove(xo, x, yo, y))
 			{
 				Game[y][x] = Game[yo][xo];
 				Game[yo][xo] = 254;
@@ -60,18 +51,9 @@ bool O(bool player, int xo, int yo, int x, int y)
 {
 	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
 	{
-		if (xo - yo == x - y)
+		if (abs(x - xo) == abs(y - yo))
 		{
-			if (CheckDiagonalMove(0, xo, yo, y))
-			{
-				Game[y][x] = Game[yo][xo];
-				Game[yo][xo] = 254;
-				return 1;
-			}
-		}
-		else if (xo + yo == x + y)
-		{
-			if (CheckDiagonalMove(1, xo, yo, y))
+			if (CheckDiagonalMove(xo, x, yo, y))
 			{
 				Game[y][x] = Game[yo][xo];
 				Game[yo][xo] = 254;

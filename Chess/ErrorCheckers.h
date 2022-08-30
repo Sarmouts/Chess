@@ -36,14 +36,10 @@ bool NotPawnOfSamePlayer(bool player, int x, int y)
 		return 1;
 	return 0;
 }//returns 1 if move is correct(if it is not the same player's pawn at the given position) 0 if not
-bool CheckDiagonalMove(bool occasion, int xo, int yo, int y)//if there another pawn until it reaches the position given by the player 
+bool CheckDiagonalMove(int xo, int x, int yo, int y)//if there another pawn until it reaches the position given by the player 
 {
 	int n = (y - yo) / abs(y - yo);
-	int z;
-	if (occasion)//xo + yo == x + y
-		z = -n;
-	else//xo - yo == x - y
-		z = n;
+	int z = (x - xo) / abs(x - xo);
 	for (yo += n, xo += z; yo != y; yo += n, xo += z)
 		if (Game[yo][xo] != char(254))
 			return 0;
