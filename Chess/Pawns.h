@@ -13,18 +13,9 @@ bool Q(bool player, int xo, int yo, int x, int y)
 				return 1;
 			}
 		}
-		else if (y == yo)
+		else if (abs((x - xo) + (y - yo)) == abs((x - xo) - (y - yo)))
 		{
-			if (CheckStraightMove(0, xo, yo, x, y))
-			{
-				Game[y][x] = Game[yo][xo];
-				Game[yo][xo] = 254;
-				return 1;
-			}
-		}
-		else if (x == xo)
-		{
-			if (CheckStraightMove(1, xo, yo, x, y))
+			if (CheckStraightMove(xo, yo, x, y))
 			{
 				Game[y][x] = Game[yo][xo];
 				Game[yo][xo] = 254;
@@ -86,18 +77,9 @@ bool C(bool player, int xo, int yo, int x, int y)
 {
 	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
 	{
-		if (y == yo)
+		if (abs((x - xo) + (y - yo)) == abs((x - xo) - (y - yo)))
 		{
-			if (CheckStraightMove(0, xo, yo, x, y))
-			{
-				Game[y][x] = Game[yo][xo];
-				Game[yo][xo] = 254;
-				return 1;
-			}
-		}
-		else if (x == xo)
-		{
-			if (CheckStraightMove(1, xo, yo, x, y))
+			if (CheckStraightMove(xo, yo, x, y))
 			{
 				Game[y][x] = Game[yo][xo];
 				Game[yo][xo] = 254;

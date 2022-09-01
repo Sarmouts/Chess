@@ -45,9 +45,9 @@ bool CheckDiagonalMove(int xo, int x, int yo, int y)//if there another pawn unti
 			return 0;
 	return 1;
 }//returns 1 if move is correct 0 if not
-bool CheckStraightMove(bool occasion, int xo, int yo, int x, int y)//if there another pawn until it reaches the position given by the player
+bool CheckStraightMove(int xo, int yo, int x, int y)//if there another pawn until it reaches the position given by the player
 {
-	if (occasion)//x=xo
+	if (x == xo)
 	{
 		int n = (y - yo) / abs(y - yo);
 		for (int i = yo + n; i != y; i += n)
@@ -55,8 +55,7 @@ bool CheckStraightMove(bool occasion, int xo, int yo, int x, int y)//if there an
 				return 0;
 		return 1;
 	}
-	//y=yo
-	int n = (x - xo) / abs(x - xo);
+	int n = (x - xo) / abs(x - xo); //y=yo
 	for (int i = xo + n; i != x; i += n)
 		if (Game[yo][i] != char(254))
 			return 0;
