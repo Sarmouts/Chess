@@ -2,7 +2,7 @@
 #include "ErrorCheckers.h";
 bool Q(bool player, int xo, int yo, int x, int y)
 {
-	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
+	if (IsMovingHisPawn(player, xo, yo) && PositionExists(x, y) && NotPawnOfSamePlayer(player, x, y))
 	{
 		if (abs(x - xo) == abs(y - yo))
 		{
@@ -27,7 +27,7 @@ bool Q(bool player, int xo, int yo, int x, int y)
 }
 bool K(bool player, int xo, int yo, int x, int y)
 {
-	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
+	if (IsMovingHisPawn(player, xo, yo) && PositionExists(x, y) && NotPawnOfSamePlayer(player, x, y))
 	{
 		if (y == yo + 1 || y == yo - 1 || x == xo + 1 || x == xo - 1)
 		{
@@ -40,7 +40,7 @@ bool K(bool player, int xo, int yo, int x, int y)
 }
 bool O(bool player, int xo, int yo, int x, int y)
 {
-	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
+	if (IsMovingHisPawn(player, xo, yo) && PositionExists(x, y) && NotPawnOfSamePlayer(player, x, y))
 	{
 		if (abs(x - xo) == abs(y - yo))
 		{
@@ -56,7 +56,7 @@ bool O(bool player, int xo, int yo, int x, int y)
 }
 bool H(bool player, int xo, int yo, int x, int y)
 {
-	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
+	if (IsMovingHisPawn(player, xo, yo) && PositionExists(x, y) && NotPawnOfSamePlayer(player, x, y))
 	{
 		if ((y == yo - 2 || y == yo + 2) && (x == xo - 1 || x == xo + 1))
 		{
@@ -75,7 +75,7 @@ bool H(bool player, int xo, int yo, int x, int y)
 }
 bool C(bool player, int xo, int yo, int x, int y)
 {
-	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
+	if (IsMovingHisPawn(player, xo, yo) && PositionExists(x, y) && NotPawnOfSamePlayer(player, x, y))
 	{
 		if (abs((x - xo) + (y - yo)) == abs((x - xo) - (y - yo)))
 		{
@@ -91,7 +91,7 @@ bool C(bool player, int xo, int yo, int x, int y)
 }
 bool S(bool player, int xo, int yo, int x, int y)
 {
-	if (IsMovingHisPawn(player, xo, yo) && NotPawnOfSamePlayer(player, x, y))
+	if (IsMovingHisPawn(player, xo, yo) && PositionExists(x, y) && NotPawnOfSamePlayer(player, x, y))
 	{
 		if (!player)
 		{

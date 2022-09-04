@@ -36,6 +36,12 @@ bool NotPawnOfSamePlayer(bool player, int x, int y)
 		return 1;
 	return 0;
 }//returns 1 if move is correct(if it is not the same player's pawn at the given position) 0 if not
+bool PositionExists(int x, int y)
+{
+	if (x > 7 || y > 7 || x < 0 || y < 0)
+		return 0;
+	return 1;
+}
 bool CheckDiagonalMove(int xo, int x, int yo, int y)//if there another pawn until it reaches the position given by the player 
 {
 	int n = (y - yo) / abs(y - yo);
